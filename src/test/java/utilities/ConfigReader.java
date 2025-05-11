@@ -22,6 +22,7 @@ public class ConfigReader {
             e.printStackTrace();
         }
     }
+
     private static void saveProperties() {
         try (FileOutputStream outputFile = new FileOutputStream(configFilePath)) {
             properties.store(outputFile, "Updated Dynamic Properties");
@@ -50,8 +51,28 @@ public class ConfigReader {
                 properties.setProperty(keyword, email);
                 break;
             case "password":
-                String password = faker.internet().password(4,6) + ".Bf!";
+                String password = faker.internet().password() + ".Bf!";
                 properties.setProperty(keyword, password);
+                break;
+            case "company":
+                String company = faker.company().name();
+                properties.setProperty(keyword, company);
+                break;
+            case "phoneNumber":
+                String phoneNumber = faker.phoneNumber().cellPhone();
+                properties.setProperty(keyword, phoneNumber);
+                break;
+            case "street":
+                String addressField = faker.address().fullAddress();
+                properties.setProperty(keyword, addressField);
+                break;
+            case "city":
+                String city = faker.address().cityName();
+                properties.setProperty(keyword, city);
+                break;
+            case "postalCode":
+                String postalCode = faker.address().zipCode();
+                properties.setProperty(keyword, postalCode);
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported property key: " + keyword);
