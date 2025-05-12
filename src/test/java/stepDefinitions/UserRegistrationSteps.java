@@ -3,6 +3,7 @@ package stepDefinitions;
 import com.github.javafaker.Faker;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.*;
 import utilities.*;
@@ -11,7 +12,7 @@ import java.util.*;
 
 public class UserRegistrationSteps {
     DialogContent dc = new DialogContent();
-    RegisterAndLogin register=new RegisterAndLogin();
+    RegisterAndLogin ral =new RegisterAndLogin();
     Faker faker = new Faker(new Locale("en-US"));
 
     @Given("The user opens the Magento homepage")
@@ -21,12 +22,14 @@ public class UserRegistrationSteps {
 
     @When("The user click the option to register a create new account")
     public void theUserClickTheOptionToRegisterACreateNewAccount() {
-        dc.myClick(register.createAccountBtn);
+        GWD.getWait().until(ExpectedConditions.visibilityOf(ral.createAccountBtn));
+        dc.myClick(ral.createAccountBtn);
     }
 
     @And("The user form is displayed")
     public void theUserFormIsDisplayed() {
-        Assert.assertTrue(register.formHeader.getText().contains("Create New Customer Account"));
+        GWD.getWait().until(ExpectedConditions.visibilityOf(ral.formHeader));
+        Assert.assertTrue(ral.formHeader.getText().contains("Create New Customer Account"));
     }
 
     @And("The user fills the registration form with the following data")
@@ -39,24 +42,24 @@ public class UserRegistrationSteps {
 
             switch (field){
                 case "firstName" :
-                    dc.mySendKeys(register.firstNameField, faker.name().firstName());
+                    dc.mySendKeys(ral.firstNameField, faker.name().firstName());
                     break;
                 case "lastName" :
-                    dc.mySendKeys(register.lastNameField, faker.name().lastName());
+                    dc.mySendKeys(ral.lastNameField, faker.name().lastName());
                     break;
                 case "email" :
                     ConfigReader.updateProperty("email");
-                    dc.mySendKeys(register.emailField, ConfigReader.getProperty("email"));
+                    dc.mySendKeys(ral.emailField, ConfigReader.getProperty("email"));
                     break;
                 case  "password" :
                     ConfigReader.updateProperty("password");
-                    dc.mySendKeys(register.passwordField, ConfigReader.getProperty("password"));
+                    dc.mySendKeys(ral.passwordField, ConfigReader.getProperty("password"));
                     break;
                 case "confirmPassword" :
-                    dc.mySendKeys(register.confirmPasswordField, ConfigReader.getProperty("password"));
+                    dc.mySendKeys(ral.confirmPasswordField, ConfigReader.getProperty("password"));
                     break;
                 case "action" :
-                    dc.myClick(register.submitButton);
+                    dc.myClick(ral.submitButton);
                     break;
                 default:
                     System.out.println("Unknown field: " + field);
@@ -67,11 +70,13 @@ public class UserRegistrationSteps {
 
     @Then("A success message should be visible confirming the registration")
     public void aSuccessMessageShouldBeVisibleConfirmingTheRegistration() {
-        Assert.assertTrue(register.successMessage.getText().contains("Thank you for registering with Main Website Store."));
+        GWD.getWait().until(ExpectedConditions.visibilityOf(ral.successMessage));
+        Assert.assertTrue(ral.successMessage.getText().contains("Thank you for registering with Main Website Store."));
     }
 
     @And("The user should see their account dashboard")
     public void theUserShouldSeeTheirAccountDashboard() {
-        Assert.assertTrue(register.myAccountHeader.getText().contains("My Account"));
+        GWD.getWait().until(ExpectedConditions.visibilityOf(ral.myAccountHeader));
+        Assert.assertTrue(ral.myAccountHeader.getText().contains("My Account"));
     }
 }
