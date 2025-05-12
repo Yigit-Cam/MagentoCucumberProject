@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.*;
 
+import java.util.List;
+
 public class TabNav extends ReusableMethods {
     public Actions action;
 
@@ -41,6 +43,23 @@ public class TabNav extends ReusableMethods {
     @FindBy(xpath = "//div[contains(text(),'Your search returned no results.')]")
     public WebElement noResultsMessage;
 
+    @FindBy(xpath = "//nav[@class='navigation']/ul/li")
+    public List<WebElement> tabMenuElementList;
+
+    @FindBy(id = "page-title-heading")
+    public WebElement pageTitleHeading;
+
+    @FindBy(xpath = "//div[@class='categories-menu']//span")
+    public List<WebElement> categoriesMenuList;
+
+    @FindBy(xpath = "(//nav[@class='navigation']/ul/li/ul)[1]/li/a")
+    public List<WebElement> roleMenuListWomen;
+
+    @FindBy(xpath = "(//nav[@class='navigation']/ul/li/ul)[2]/li/a")
+    public List<WebElement> roleMenuListMen;
+
+    @FindBy(xpath = "//ol[@class='products list items product-items']/li")
+    public List<WebElement> productList;
 
 
 
