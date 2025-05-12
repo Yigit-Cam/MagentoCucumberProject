@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import utilities.ConfigReader;
 import utilities.GWD;
 import utilities.ReusableMethods;
 
@@ -42,6 +44,9 @@ public class DialogContent extends ReusableMethods {
     ///add new address
     @FindBy(css = "[title='Add New Address']")
     public WebElement addNewAddressButton;
+
+    @FindBy(xpath = "//span[@data-ui-id='page-title-wrapper']")
+    public List<WebElement> addNewAddressMessage;
 
     @FindBy(id = "company")
     public WebElement company;
@@ -84,4 +89,28 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//button[@class='action-primary action-accept']/span")
     public WebElement deleteAlertOkButton;
+
+    public void addFirstAddress() {
+        ConfigReader.updateProperty("company");
+        mySendKeys(company, ConfigReader.getProperty("company"));
+        ConfigReader.updateProperty("phoneNumber");
+        mySendKeys(telephone, ConfigReader.getProperty("phoneNumber"));
+        ConfigReader.updateProperty("street");
+        mySendKeys(streetAddress, ConfigReader.getProperty("street"));
+        ConfigReader.updateProperty("city");
+        mySendKeys(city, ConfigReader.getProperty("city"));
+        myClick(selectRegion);
+        selectByText(selectRegion, "California");
+        ConfigReader.updateProperty("postalCode");
+        mySendKeys(zipCode, ConfigReader.getProperty("postalCode"));
+        myClick(country);
+        selectByText(country, "United States");
+    }
+    public void addNewAddress() {
+        addFirstAddress();
+        GWD.getWait().until(ExpectedConditions.elementToBeClickable(billingAddressCheckbox));
+        myClick(billingAddressCheckbox);
+        GWD.getWait().until(ExpectedConditions.elementToBeClickable(shippingAddressCheckbox));
+        myClick(shippingAddressCheckbox);
+    }
 }

@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.DialogContent;
 import pages.LeftNav;
 import pages.TabNav;
-import utilities.ConfigReader;
 import utilities.GWD;
 
 import java.util.List;
@@ -35,9 +34,7 @@ public class AddressTransactionsSteps {
                 GWD.getWait().until(ExpectedConditions.elementToBeClickable(firstDeleteButton));
                 dc.myClick(firstDeleteButton);
 
-                GWD.getWait().until(ExpectedConditions.alertIsPresent());
-                GWD.getWait().until(ExpectedConditions.visibilityOf(dc.deleteAlertOkButton));
-                //GWD.getDriver().switchTo().alert().accept();
+                GWD.getWait().until(ExpectedConditions.elementToBeClickable(dc.deleteAlertOkButton));
                 dc.myClick(dc.deleteAlertOkButton);
                 tn.verifyContainsMessage(tn.successMessage, "You deleted the address.");
 
@@ -47,36 +44,31 @@ public class AddressTransactionsSteps {
                 deleteButtons = dc.deleteAddressButtons; // Eğer element kaybolduysa yeniden al
             }
         }
+        System.out.println("Delete button clicked successfully.");
     }
 
     @And("The user clicks on the Address Book button and then on the Add New Address button")
     public void theUserClicksOnTheAddressBookButtonAndThenOnTheAddNewAddressButton() {
         GWD.getWait().until(ExpectedConditions.elementToBeClickable(ln.addressBookButton));
         dc.myClick(ln.addressBookButton);
-        GWD.getWait().until(ExpectedConditions.elementToBeClickable(dc.addNewAddressButton));
-        dc.jsClick(dc.addNewAddressButton);
+        List<WebElement> addAddressMessageList = dc.addNewAddressMessage;
+        while (addAddressMessageList.isEmpty()) {
+            dc.addFirstAddress();
+            break;
+        }
+        System.out.println("Address Book button clicked successfully.");
     }
 
     @And("Fills in user address information Checks for the existence of Default Shipping Address and Default Billing Address selections")
     public void fillsInUserAddressInformationChecksForTheExistenceOfDefaultShippingAddressAndDefaultBillingAddressSelections() {
-        ConfigReader.updateProperty("company");
-        dc.mySendKeys(dc.company, ConfigReader.getProperty("company"));
-        ConfigReader.updateProperty("phoneNumber");
-        dc.mySendKeys(dc.telephone, ConfigReader.getProperty("phoneNumber"));
-        ConfigReader.updateProperty("street");
-        dc.mySendKeys(dc.streetAddress, ConfigReader.getProperty("street"));
-        ConfigReader.updateProperty("city");
-        dc.mySendKeys(dc.city, ConfigReader.getProperty("city"));
-        dc.myClick(dc.selectRegion);
-        dc.selectByText(dc.selectRegion, "California");
-        ConfigReader.updateProperty("postalCode");
-        dc.mySendKeys(dc.zipCode, ConfigReader.getProperty("postalCode"));
-        dc.myClick(dc.country);
-        dc.selectByText(dc.country, "United States");
-        GWD.getWait().until(ExpectedConditions.elementToBeClickable(dc.billingAddressCheckbox));
-        dc.myClick(dc.billingAddressCheckbox);
-        GWD.getWait().until(ExpectedConditions.elementToBeClickable(dc.shippingAddressCheckbox));
-        dc.myClick(dc.shippingAddressCheckbox);
+        List<WebElement> addAddressMessageList = dc.addNewAddressMessage;
+        while (!addAddressMessageList.isEmpty()) {
+            dc.myClick(dc.addNewAddressButton);
+            GWD.getWait().until(ExpectedConditions.visibilityOf(dc.company));
+            dc.addNewAddress();
+            break;
+        }
+        System.out.println("Add New Address button clicked successfully.");
     }
 
     @And("The user clicks on the Save button and verifies the success message")
@@ -85,6 +77,7 @@ public class AddressTransactionsSteps {
         dc.myClick(dc.saveButton);
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.confirmMessage));
         tn.verifyContainsMessage(dc.confirmMessage, "You saved");
+        System.out.println("Address added successfully.");
     }
 
     @When("The user clicks on the My Account button in the Left Nav and then on the Edit Address button")
@@ -93,24 +86,12 @@ public class AddressTransactionsSteps {
         ln.myClick(ln.myAccountButtonLeftNav);
         GWD.getWait().until(ExpectedConditions.elementToBeClickable(dc.editAddressButton));
         dc.jsClick(dc.editAddressButton);
+        System.out.println("Edit Address button clicked successfully.");
     }
 
     @And("The user changes the address information they want to change")
     public void theUserChangesTheAddressInformationTheyWantToChange() {
-        ConfigReader.updateProperty("company");
-        dc.mySendKeys(dc.company, ConfigReader.getProperty("company"));
-        ConfigReader.updateProperty("phoneNumber");
-        dc.mySendKeys(dc.telephone, ConfigReader.getProperty("phoneNumber"));
-        ConfigReader.updateProperty("street");
-        dc.mySendKeys(dc.streetAddress, ConfigReader.getProperty("street"));
-        ConfigReader.updateProperty("city");
-        dc.mySendKeys(dc.city, ConfigReader.getProperty("city"));
-        dc.myClick(dc.selectRegion);
-        dc.selectByText(dc.selectRegion, "California");
-        ConfigReader.updateProperty("postalCode");
-        dc.mySendKeys(dc.zipCode, ConfigReader.getProperty("postalCode"));
-        dc.myClick(dc.country);
-        dc.selectByText(dc.country, "United States");
+        dc.addFirstAddress();
     }
 
     @Then("The user clicks on Save button and displays verifies message")
@@ -119,5 +100,12 @@ public class AddressTransactionsSteps {
         dc.myClick(dc.saveButton);
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.confirmMessage));
         tn.verifyContainsMessage(dc.confirmMessage, "You saved");
+        System.out.println("Address updated successfully.");
+    }
+
+    @And("The user clicks on the Address Book button")
+    public void theUserClicksOnTheAddressBookButton() {
+        GWD.getWait().until(ExpectedConditions.elementToBeClickable(ln.addressBookButton));
+        dc.myClick(ln.addressBookButton);
     }
 }

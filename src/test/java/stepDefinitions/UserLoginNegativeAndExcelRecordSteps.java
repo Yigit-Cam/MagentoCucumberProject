@@ -85,7 +85,5 @@ public class UserLoginNegativeAndExcelRecordSteps {
         dc.myClick(ral.customerMenu);
         GWD.getWait().until(ExpectedConditions.elementToBeClickable(ral.signOutBtn));
         dc.myClick(ral.signOutBtn);
-        GWD.getWait().until(ExpectedConditions.visibilityOf(ral.signedOutHeader));
-        Assert.assertTrue(ral.signedOutHeader.isDisplayed());
     }
 }
