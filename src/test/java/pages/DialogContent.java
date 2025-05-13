@@ -59,6 +59,21 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[text()='You have no items in your shopping cart.'])[2]")
     public WebElement cartEmptyMessage;
 
+//Product Order
+@FindBy(xpath = "(//*[text()='Proceed to Checkout'])[2]")
+public WebElement proceedCheckout;
+
+    @FindBy(xpath = "//span[text()='Next']")
+    public WebElement nextButton;
+
+    @FindBy(xpath = "//input[@id='billing-address-same-as-shipping-checkmo']")
+    public WebElement clickedButton;
+
+    @FindBy(xpath = "//span[text()='Place Order']")
+    public WebElement placeOrderButton;
+
+    @FindBy(xpath = "//span[text()='Thank you for your purchase!']")
+    public WebElement purchaseMessage;
 
 
 
