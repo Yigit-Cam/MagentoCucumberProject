@@ -38,4 +38,6 @@ public class LeftNav extends ReusableMethods {
 
     @FindBy(linkText = "Address Book")
     public WebElement addressBookButton;
+
+
 }
