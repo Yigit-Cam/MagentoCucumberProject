@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
@@ -14,6 +15,7 @@ import pages.TabNav;
 import utilities.GWD;
 
 import java.time.Duration;
+import java.util.List;
 
 public class AddingAndRemovingShoppingCartsteps {
     DialogContent dc = new DialogContent();
@@ -40,6 +42,7 @@ public class AddingAndRemovingShoppingCartsteps {
                 pause(Duration.ofSeconds(1)).
                 click().build().perform();
     }
+
 
     @Then("Fills in the required information for the product")
     public void fillsInTheRequiredInformationForTheProduct() {
@@ -73,7 +76,7 @@ public class AddingAndRemovingShoppingCartsteps {
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.cartItemQty));
         dc.myClick(dc.cartItemQty);
         dc.cartItemQty.clear();
-        dc.mySendKeys(dc.cartItemQty,"1");
+        dc.mySendKeys(dc.cartItemQty, "1");
     }
 
     @Then("User updates the product")
@@ -81,7 +84,7 @@ public class AddingAndRemovingShoppingCartsteps {
         js.executeScript("window.scrollBy(0, -500);");
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.updateShoppingCart));
         dc.myClick(dc.updateShoppingCart);
-        Assert.assertNotEquals("Did not change the prices of the product",dc.subtotal1.getText(),dc.subtotal2.getText());
+        Assert.assertNotEquals("Did not change the prices of the product", dc.subtotal1.getText(), dc.subtotal2.getText());
     }
 
     @And("User deletes the product")
@@ -94,6 +97,6 @@ public class AddingAndRemovingShoppingCartsteps {
     @And("The user receives a confirmation message that the product is not available")
     public void theUserReceivesAConfirmationMessageThatTheProductIsNotAvailable() {
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.cartEmptyMessage));
-        Assert.assertTrue(dc.cartEmptyMessage.isDisplayed(),"Cart is no empty");
+        Assert.assertTrue(dc.cartEmptyMessage.isDisplayed(), "Cart is no empty");
     }
 }
