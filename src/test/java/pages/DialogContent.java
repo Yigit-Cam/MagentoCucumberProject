@@ -17,7 +17,74 @@ public class DialogContent extends ReusableMethods {
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
         this.action = new Actions(GWD.getDriver());
+
     }
+    //Add Shoppingcart
+    @FindBy(xpath = "//div[@option-label='XS']")
+    public WebElement size;
+
+    @FindBy(xpath = " //img[@alt='Montana Wind Jacket']")
+    public WebElement windJacket;
+
+    @FindBy(xpath = " //div[@option-label='Black']")
+    public WebElement color;
+
+    @FindBy(xpath = "//input[@type='number']")
+    public WebElement numberQty;
+
+    @FindBy(xpath = "//span[text()='Add to Cart']")
+    public WebElement addToCart;
+
+    @FindBy(xpath = "//div[contains(text(), 'You added')]")
+    public WebElement addMessage;
+
+    @FindBy(xpath = "//span[text()='View and Edit Cart']")
+    public WebElement viewEditCart;
+
+    @FindBy(xpath = "//input[@data-role='cart-item-qty']")
+    public WebElement cartItemQty;
+
+    @FindBy(xpath = "//span[text()='Update Shopping Cart']")
+    public WebElement updateShoppingCart;
+
+    @FindBy(xpath = "(//span[@class='price'])[1]")
+    public WebElement subtotal1;
+
+    @FindBy(xpath = "(//span[@class='price'])[1]")
+    public WebElement subtotal2;
+
+    @FindBy(xpath = "(//a[@title='Remove item'])[1]")
+    public WebElement removeItem;
+
+    @FindBy(xpath = "(//*[text()='You have no items in your shopping cart.'])[2]")
+    public WebElement cartEmptyMessage;
+
+//Product Order
+@FindBy(xpath = "(//*[text()='Proceed to Checkout'])[2]")
+public WebElement proceedCheckout;
+
+    @FindBy(xpath = "//span[text()='Next']")
+    public WebElement nextButton;
+
+    @FindBy(xpath = "//input[@id='billing-address-same-as-shipping-checkmo']")
+    public WebElement clickedButton;
+
+    @FindBy(xpath = "//span[text()='Place Order']")
+    public WebElement placeOrderButton;
+
+    @FindBy(xpath = "//span[text()='Thank you for your purchase!']")
+    public WebElement purchaseMessage;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -28,7 +28,7 @@ public class TabNav extends ReusableMethods {
     @FindBy(xpath = "//a[@class='logo']")
     public WebElement logo;
 
-    @FindBy(xpath = "(//span[@class='ui-menu-icon ui-icon ui-icon-carat-1-e'])[4]")
+    @FindBy(xpath = "(//span[text()='Men'])[1]")
     public WebElement menButton;
 
     @FindBy(xpath = "(//span[@class='ui-menu-icon ui-icon ui-icon-carat-1-e'])[5]")
@@ -60,6 +60,11 @@ public class TabNav extends ReusableMethods {
 
     @FindBy(xpath = "//ol[@class='products list items product-items']/li")
     public List<WebElement> productList;
+
+    @FindBy(xpath = "(//span[@class='counter qty'])[1]")
+    public WebElement counterQty;
+
+
 
 
 

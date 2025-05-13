@@ -13,11 +13,6 @@ public class TabMenuSteps {
     TabNav tb = new TabNav();
     RegisterAndLogin ral = new RegisterAndLogin();
 
-    @And("checks the username")
-    public void checksTheUsername() {
-        Assert.assertTrue(ral.welcomeText.getText().contains(ConfigReader.getProperty("checkUser")));
-    }
-
     @And("check the TABMenu connections at")
     public void checkTheTABMenuConnectionsAt() {
         List<WebElement> tabMenuList = tb.tabMenuElementList;
@@ -43,8 +38,8 @@ public class TabMenuSteps {
                 }
                 if (i == 2) {
                     tb.scrollToElement(tabMenuList.get(i));
-                    List<WebElement> roleMenuElement = tb.roleMenuListMen;
-                    tb.myClick(roleMenuElement.get(i - 1));
+                    List<WebElement> roleMenuElementMen = tb.roleMenuListMen;
+                    tb.myClick(roleMenuElementMen.get(i - 1));
                     List<WebElement> products = tb.productList;
                     Assert.assertFalse(products.isEmpty(), "No products found to view!");
                 }
