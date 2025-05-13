@@ -169,7 +169,7 @@ MagentoProject_Cucumber/
 
 ✅ **Actual:** Login attempt failed and appropriate error messages were displayed.
 
-<img src="testGifs/" alt="" width="800" height="500"/>
+<img src="testGifs/US_707_Negative.gif" alt="" width="800" height="500"/>
 
 ---
 
@@ -205,7 +205,7 @@ MagentoProject_Cucumber/
 
 ✅ **Actual:** Products were successfully added to the cart, quantities were updated, and items were removed as expected.
 
-<img src="testGifs/US_" alt="" width="800" height="500"/>
+<img src="testGifs/US_705.gif" alt="" width="800" height="500"/>
 
 ---
 
@@ -217,7 +217,7 @@ MagentoProject_Cucumber/
 
 ✅ **Actual:** The user successfully placed the order, selected shipping method, confirmed address, and received an order confirmation with a number.
 
-<img src="testGifs/US_" alt="" width="800" height="500"/>
+<img src="testGifs/US_706.gif" alt="" width="800" height="500"/>
 
 ---
 
