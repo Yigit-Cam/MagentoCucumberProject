@@ -73,8 +73,9 @@ MagentoProject_Cucumber/
 
 ## 🧰 Technologies Used and Dependencies
 
+
 | Tool/Library            | Description                     |
-|-------------------------|---------------------------------|
+| ----------------------- | ------------------------------- |
 | Java JDK 21             | Programming Language            |
 | Selenium WebDriver 4.31 | Web Automation Tool             |
 | Cucumber 7.20           | BDD Testing Framework           |
@@ -90,37 +91,39 @@ MagentoProject_Cucumber/
 ## 🚀 Installation
 
 1. Clone the repository:
-    ```bash
-        git clone https://github.com/<your-username>/MagentoProject_Cucumber.git
-    ```
 
+   ```bash
+       git clone https://github.com/<your-username>/MagentoProject_Cucumber.git
+   ```
 2. Open the project in IntelliJ IDEA (or any IDE)
 3. Run:
+
    ```bash
        mvn clean install
-    ```
+   ```
+
 ---
 
 ## 🛠️ Usage
 
 * To run all tests:
 
-    ```bash
-      mvn test
-    ```
-
+  ```bash
+    mvn test
+  ```
 * To run specific browser tests:
 
-    * Use `singleBrowserTesting.xml` or `parallelBrowserTesting.xml`
-    * Right-click the XML file and run
-    * Or You can run the feature file directly by right-clicking on the feature file in the `featureFiles/` folder.
+  * Use `singleBrowserTesting.xml` or `parallelBrowserTesting.xml`
+  * Right-click the XML file and run
+  * Or You can run the feature file directly by right-clicking on the feature file in the `featureFiles/` folder.
 
 ---
 
 ## 🧾 User Stories & Test Scenarios
 
-| User Story | Description            | Status   |
-|------------|------------------------|----------|
+
+| User Story | Description            | Status    |
+| ---------- | ---------------------- | --------- |
 | US_701     | User Registration      | ✅ Passed |
 | US_702     | User Login             | ✅ Passed |
 | US_703     | Address Transactions   | ✅ Passed |
@@ -131,6 +134,7 @@ MagentoProject_Cucumber/
 | US_708     | Wishlist Functionality | ✅ Passed |
 
 ---
+
 ## 🛠️ Magento Project - User Stories & Test Scenarios
 
 ### **1️⃣ US_701 - User Registration**
@@ -141,7 +145,7 @@ MagentoProject_Cucumber/
 
 ✅ **Actual:** The user entered the required details, submitted the form, received a success message, and was redirected accordingly.
 
-<img src="testGifs/US_" alt="" width="800" height="500"/>
+<img src="testGifs/US_701.gif" alt="" width="800" height="500"/>
 
 ---
 
@@ -155,7 +159,7 @@ MagentoProject_Cucumber/
 
 ✅ **Actual:** Login was successful and the user accessed their account page.
 
-<img src="testGifs/US_" alt="" width="800" height="500"/>
+<img src="testGifs/US_702_Positive.gif" alt="" width="800" height="500"/>
 
 #### ➖ **Negative Scenario**
 
@@ -165,7 +169,7 @@ MagentoProject_Cucumber/
 
 ✅ **Actual:** Login attempt failed and appropriate error messages were displayed.
 
-<img src="testGifs/US_" alt="" width="800" height="500"/>
+<img src="testGifs/" alt="" width="800" height="500"/>
 
 ---
 
@@ -242,10 +246,12 @@ MagentoProject_Cucumber/
 <img src="testGifs/US_" alt="US_607_Negative" width="800" height="500"/>
 
 ---
+
 ## 📊 Test Coverage Table
 
+
 | Scenario               | Priority |
-|------------------------|----------|
+| ---------------------- | -------- |
 | User Registration      | High     |
 | User Login             | High     |
 | Address Entry          | High     |
@@ -259,8 +265,9 @@ MagentoProject_Cucumber/
 
 ## 📈 Test Reports
 
+
 | Report Type  | Description                         |
-|--------------|-------------------------------------|
+| ------------ | ----------------------------------- |
 | Spark Report | Rich HTML report with screenshots   |
 | PDF Report   | Printable report with scenario logs |
 
@@ -278,22 +285,23 @@ Find reports under:
 Bug tracking is handled in the GitHub Issues tab.
 
 ```bash
-    
-    
+  
+  
 ```
 
 ---
 
 ## 👥 Project Team
 
-| Name         | Role                       | User Stories   |
-|--------------|----------------------------|----------------|
-| Yigit Cam    | Project Lead & QA Engineer | US_705, US_706 |
+
+| Name          | Role                       | User Stories   |
+| ------------- | -------------------------- | -------------- |
+| Yigit Cam     | Project Lead & QA Engineer | US_705, US_706 |
 | Zafer Ataklı | QA Engineer                | US_703         |
-| Nuri Öztürk  | QA Engineer                | US_707         |
-| Rıfat Batır  | QA Engineer                | US_704         |
-| Tugba Kilic  | QA Engineer                | US_701, US_702 |
-| Azim Korkmaz | QA Engineer                | US_708         |
+| Nuri Öztürk | QA Engineer                | US_707         |
+| Rıfat Batır | QA Engineer                | US_704         |
+| Tugba Kilic   | QA Engineer                | US_701, US_702 |
+| Azim Korkmaz  | QA Engineer                | US_708         |
 
 ---
 
@@ -323,4 +331,3 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 For questions or suggestions, please reach out via GitHub issues or directly to project contributors.
 
 ---
-
