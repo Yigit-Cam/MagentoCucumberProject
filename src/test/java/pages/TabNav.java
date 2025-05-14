@@ -64,6 +64,17 @@ public class TabNav extends ReusableMethods {
     @FindBy(xpath = "(//span[@class='counter qty'])[1]")
     public WebElement counterQty;
 
+    ///wish list locators
+
+    @FindBy(xpath = "//span[text()='Women']")
+    public WebElement womenButton;
+
+    @FindBy(xpath = "(//span[text()='Tops'])[1]")
+    public WebElement topsButtonWomen;
+
+    @FindBy(xpath = "(//span[text()='Jackets'])[1]")
+    public WebElement jacketsButtonWomen;
+
 
 
 
