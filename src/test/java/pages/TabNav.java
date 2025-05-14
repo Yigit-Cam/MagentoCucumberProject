@@ -102,5 +102,4 @@ public class TabNav extends ReusableMethods {
 
     @FindBy(xpath = "//*[@class='message-success success message']/div")
     public WebElement successMessage;
-
 }
