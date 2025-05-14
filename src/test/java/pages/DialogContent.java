@@ -17,8 +17,8 @@ public class DialogContent extends ReusableMethods {
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
         this.action = new Actions(GWD.getDriver());
-
     }
+
     //Add Shoppingcart
     @FindBy(xpath = "//div[@option-label='XS']")
     public WebElement size;
@@ -59,9 +59,9 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[text()='You have no items in your shopping cart.'])[2]")
     public WebElement cartEmptyMessage;
 
-//Product Order
-@FindBy(xpath = "(//*[text()='Proceed to Checkout'])[2]")
-public WebElement proceedCheckout;
+    //Product Order
+    @FindBy(xpath = "(//*[text()='Proceed to Checkout'])[2]")
+    public WebElement proceedCheckout;
 
     @FindBy(xpath = "//span[text()='Next']")
     public WebElement nextButton;
@@ -76,44 +76,9 @@ public WebElement proceedCheckout;
     public WebElement purchaseMessage;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     ///add new address
     @FindBy(css = "[title='Add New Address']")
     public WebElement addNewAddressButton;
-
-    @FindBy(xpath = "//span[@data-ui-id='page-title-wrapper']")
-    public List<WebElement> addNewAddressMessage;
 
     @FindBy(id = "company")
     public WebElement company;
@@ -142,7 +107,7 @@ public WebElement proceedCheckout;
     @FindBy(css = "#primary_shipping")
     public WebElement shippingAddressCheckbox;
 
-    @FindBy(css = "[class='action save primary']")
+    @FindBy(xpath = "//button[@data-action='save-address']")
     public WebElement saveButton;
 
     @FindBy(xpath = "//a[@class='action delete'][@role='delete-address']")
@@ -158,6 +123,7 @@ public WebElement proceedCheckout;
     public WebElement deleteAlertOkButton;
 
     public void addFirstAddress() {
+        GWD.getWait().until(ExpectedConditions.visibilityOf(company));
         ConfigReader.updateProperty("company");
         mySendKeys(company, ConfigReader.getProperty("company"));
         ConfigReader.updateProperty("phoneNumber");
@@ -173,6 +139,7 @@ public WebElement proceedCheckout;
         myClick(country);
         selectByText(country, "United States");
     }
+
     public void addNewAddress() {
         addFirstAddress();
         GWD.getWait().until(ExpectedConditions.elementToBeClickable(billingAddressCheckbox));
