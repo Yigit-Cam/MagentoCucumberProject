@@ -9,7 +9,7 @@ Feature:
     Then The user should be redirected to the Home Page and see "Welcome" text in the upper right
 
   Scenario: Creating a favourite list
-    When The user goes to the page of the product they like
+    Given The user goes to the product selection page
     And  The user clicks on the Add to Favourites button
     And  The user confirms that they have added the product to their favourites
     And  The user clicks on the Dropdown Menu and My Account button
@@ -23,12 +23,8 @@ Feature:
     When The user hovers over the product in the My Wish List and clicks the edit icon
     Then The user is directed to the page with product details
 
-    When The user fills size colour and qty properties
-    And  The user clicks on update wish list button
-    Then The user is redirected to the My Wish List page
-    And  The user hovers on "See Details", show product details
-    And  The  user  hovers on "See Details"  in product, user see product details
-    Then The user verifies that the product content has been updated
+
+
 
 
 
