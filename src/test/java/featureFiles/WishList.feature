@@ -9,6 +9,8 @@ Feature:
     Then The user should be redirected to the Home Page and see "Welcome" text in the upper right
 
   Scenario: Creating a favourite list
+
+    Given The user goes to the product selection page
     When The user goes to the page of the product they like
     And  The user clicks on the Add to Favourites button
     And  The user confirms that they have added the product to their favourites
@@ -29,6 +31,7 @@ Feature:
     And  The user hovers on "See Details", show product details
     And  The  user  hovers on "See Details"  in product, user see product details
     Then The user verifies that the product content has been updated
+
 
 
 

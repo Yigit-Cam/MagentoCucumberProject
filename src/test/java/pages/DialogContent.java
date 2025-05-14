@@ -75,6 +75,36 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()='Thank you for your purchase!']")
     public WebElement purchaseMessage;
 
+    @FindBy(xpath = "(//a[@title='Add to Wish List'])[1]")
+    public WebElement addToWishList;
+
+    @FindBy(xpath = "//a[@id='ui-id-4']//span[contains(text(),'Women')]")
+    public WebElement womenButton;
+
+    @FindBy(xpath = "//a[@id='ui-id-9']//span[contains(text(),'Tops')]")
+    public WebElement topsButton;
+
+    @FindBy(xpath = "//a[@id='ui-id-11']//span[contains(text(),'Jackets')]")
+    public WebElement jacketsButton;
+
+    @FindBy(xpath = "(//span[@class='base'])[1]")
+    public WebElement myWishList;
+
+    @FindBy(xpath = "(//a[@title='Remove Item'])[1]")
+    public WebElement removeItemButton;
+
+    @FindBy (xpath = "(//span[@class='toolbar-number'][normalize-space()='2 Item(s)'])[1")
+    public  WebElement ıltems;
+
+    @FindBy(xpath = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")
+    public  WebElement  removedMessage;
+
+    @FindBy(xpath = "//div[@class='column main']//div[3]//div[1]//p[1]//span[1]")
+    public  WebElement ıltem;
+
+
+
+
 
     ///add new address
     @FindBy(css = "[title='Add New Address']")
