@@ -8,10 +8,11 @@ import utilities.GWD;
 
 import java.time.LocalDateTime;
 
-@CucumberOptions(features = {"src/test/java/featureFiles"},
+@CucumberOptions(tags = "@Regression",
+        features = {"src/test/java/featureFiles"},
         glue = {"stepDefinitions"},
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
-public class AllTestRunner extends AbstractTestNGCucumberTests {
+public class RegressionTestRunner extends AbstractTestNGCucumberTests {
 
     @BeforeClass
     @Parameters("browserType")
@@ -29,7 +30,7 @@ public class AllTestRunner extends AbstractTestNGCucumberTests {
         ExtentService.getInstance().setSystemInfo("User Name", "Bug Fathers");
         ExtentService.getInstance().setSystemInfo("Team Name", "Team#4");
         ExtentService.getInstance().setSystemInfo("Application Name", "Magento Project");
-        ExtentService.getInstance().setSystemInfo("Test Tag", "All Test Runner");
+        ExtentService.getInstance().setSystemInfo("Test Tag", "Regression Test Runner");
         ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name"));
         ExtentService.getInstance().setSystemInfo("Department", "QA");
     }

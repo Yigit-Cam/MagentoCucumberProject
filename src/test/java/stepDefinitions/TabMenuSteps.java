@@ -1,11 +1,10 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.RegisterAndLogin;
 import pages.TabNav;
-import utilities.ConfigReader;
 
 import java.util.List;
 

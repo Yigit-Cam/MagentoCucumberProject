@@ -1,12 +1,7 @@
 package stepDefinitions;
 
-import io.cucumber.java.bs.A;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
@@ -15,14 +10,12 @@ import pages.TabNav;
 import utilities.GWD;
 
 import java.time.Duration;
-import java.util.List;
 
 public class AddingAndRemovingShoppingCartsteps {
     DialogContent dc = new DialogContent();
     TabNav tn = new TabNav();
     LeftNav ln = new LeftNav();
     JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
-
 
     @Given("The user goes to the product selection page")
     public void theUserGoesToTheProductSelectionPage() {
@@ -43,7 +36,6 @@ public class AddingAndRemovingShoppingCartsteps {
                 click().build().perform();
     }
 
-
     @Then("Fills in the required information for the product")
     public void fillsInTheRequiredInformationForTheProduct() {
         dc.myClick(dc.size);
@@ -52,7 +44,6 @@ public class AddingAndRemovingShoppingCartsteps {
         dc.numberQty.clear();
         dc.mySendKeys(dc.numberQty, "2");
         dc.myClick(dc.addToCart);
-
     }
 
     @And("See confirmation message added to cart")
@@ -67,7 +58,6 @@ public class AddingAndRemovingShoppingCartsteps {
         GWD.getWait().until(ExpectedConditions.visibilityOf(tn.counterQty));
         tn.myClick(tn.counterQty);
         dc.myClick(dc.viewEditCart);
-
     }
 
     @When("User changes the number of products")
