@@ -30,7 +30,6 @@ public class AddingAndRemovingShoppingCartsteps {
 
     @When("User adds the product to the cart")
     public void userAddsTheProductToTheCart() {
-        js.executeScript("window.scrollBy(0, 250);");
         dc.action.moveToElement(dc.windJacket).
                 pause(Duration.ofSeconds(1)).
                 click().build().perform();
@@ -43,7 +42,7 @@ public class AddingAndRemovingShoppingCartsteps {
         dc.myClick(dc.numberQty);
         dc.numberQty.clear();
         dc.mySendKeys(dc.numberQty, "2");
-        dc.myClick(dc.addToCart);
+        dc.addToCart.click();
     }
 
     @And("See confirmation message added to cart")
@@ -54,7 +53,6 @@ public class AddingAndRemovingShoppingCartsteps {
 
     @Given("User goes to the cart page")
     public void userGoesToTheCartPage() {
-        js.executeScript("window.scrollBy(0, -500);");
         GWD.getWait().until(ExpectedConditions.visibilityOf(tn.counterQty));
         tn.myClick(tn.counterQty);
         dc.myClick(dc.viewEditCart);
@@ -62,7 +60,6 @@ public class AddingAndRemovingShoppingCartsteps {
 
     @When("User changes the number of products")
     public void userChangesTheNumberOfProducts() {
-        js.executeScript("window.scrollBy(0, -500);");
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.cartItemQty));
         dc.myClick(dc.cartItemQty);
         dc.cartItemQty.clear();
@@ -71,17 +68,15 @@ public class AddingAndRemovingShoppingCartsteps {
 
     @Then("User updates the product")
     public void userUpdatesTheProduct() {
-        js.executeScript("window.scrollBy(0, -500);");
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.updateShoppingCart));
-        dc.myClick(dc.updateShoppingCart);
+        dc.updateShoppingCart.click();
         Assert.assertNotEquals("Did not change the prices of the product", dc.subtotal1.getText(), dc.subtotal2.getText());
     }
 
     @And("User deletes the product")
     public void userDeletesTheProduct() {
-        js.executeScript("window.scrollBy(0, -500);");
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.removeItem));
-        dc.myClick(dc.removeItem);
+        dc.removeItem.click();
     }
 
     @And("The user receives a confirmation message that the product is not available")
