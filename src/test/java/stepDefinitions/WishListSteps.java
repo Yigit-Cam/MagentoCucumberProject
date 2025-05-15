@@ -21,7 +21,6 @@ public class WishListSteps {
 
         dc.action.moveToElement(dc.windJacket).build().perform();
                 dc.action.pause(Duration.ofSeconds(3)).click().build().perform();
-       // GWD.getWait().until(ExpectedConditions.visibilityOf(dc.windJacket));
 
         js.executeScript("window.scrollBy(0, 300);");
 
@@ -55,7 +54,8 @@ public class WishListSteps {
 
     @And("The user confirms that they have added the product to their favorites")
     public void theUserConfirmsThatTheyHaveAddedTheProductToTheirFavourites() {
-        Assert.assertTrue(dc.myWishList.isDisplayed(), "My Wish List did not appear");
+        GWD.getWait().until(ExpectedConditions.visibilityOf(dc.myWishList));
+        Assert.assertTrue(dc.myWishList.isDisplayed(), "My Wish LmyWishListist did not appear");
     }
 
     @And("User deletes a product from wishlist")

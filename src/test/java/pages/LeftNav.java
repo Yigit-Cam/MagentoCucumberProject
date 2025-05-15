@@ -15,7 +15,6 @@ public class LeftNav extends ReusableMethods {
         this.action = new Actions(GWD.getDriver());
     }
 
-    /// add new address
     @FindBy(linkText = "My Account")
     public WebElement myAccountButtonLeftNav;
 
