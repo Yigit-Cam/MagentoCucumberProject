@@ -23,10 +23,10 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//div[@option-label='XS']")
     public WebElement size;
 
-    @FindBy(xpath = " //img[@alt='Montana Wind Jacket']")
+    @FindBy(xpath = "//img[@alt='Montana Wind Jacket']")
     public WebElement windJacket;
 
-    @FindBy(xpath = " //div[@option-label='Black']")
+    @FindBy(xpath = "//div[@option-label='Black']")
     public WebElement color;
 
     @FindBy(xpath = "//input[@type='number']")
@@ -74,6 +74,9 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//span[text()='Thank you for your purchase!']")
     public WebElement purchaseMessage;
+
+    @FindBy(xpath = "(//*[@class='radio'])[2]")
+    public WebElement radioButton;
 
     /// wish list locators
 

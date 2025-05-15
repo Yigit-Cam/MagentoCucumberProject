@@ -23,6 +23,7 @@ public class ProductOrderingSteps {
     @Then("User clicks next button")
     public void userClicksNextButton() {
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.nextButton));
+        dc.myClick(dc.radioButton);
         dc.myClick(dc.nextButton);
     }
 
