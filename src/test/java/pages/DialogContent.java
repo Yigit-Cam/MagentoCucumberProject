@@ -83,14 +83,11 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//span[@class='base'])[1]")
     public WebElement myWishList;
 
-    @FindBy(xpath = "(//a[@title='Remove Item'])[1]")
+    @FindBy(xpath = "(//a[@title='Remove This Item'])[1]")
     public WebElement removeItemButton;
 
-    @FindBy(xpath = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")
-    public  WebElement  removedMessage;
-
-    @FindBy(xpath = "//div[@class='column main']//div[3]//div[1]//p[1]//span[1]")
-    public  WebElement item;
+    @FindBy(xpath = "//div[@data-ui-id='message-success']")
+    public WebElement removedMessage;
 
     @FindBy(xpath = "//img[@alt='Olivia 1/4 Zip Light Jacket']")
     public WebElement lightJacket;
@@ -99,12 +96,7 @@ public class DialogContent extends ReusableMethods {
     public WebElement productAddWishListButton;
 
 
-
-
-
-
-
-    ///add new address
+    /// add new address
     @FindBy(css = "[title='Add New Address']")
     public WebElement addNewAddressButton;
 
