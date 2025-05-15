@@ -1,4 +1,4 @@
-Feature:
+Feature: Wish List Functionality
 
   Background:
     Given The user opens the Magento homepage
@@ -15,10 +15,3 @@ Feature:
     And  The user confirms that they have added the product to their favorites
     And User deletes a product from wishlist
     Then the user checks the number of products in the wishlist
-
-
-
-
-
-
-

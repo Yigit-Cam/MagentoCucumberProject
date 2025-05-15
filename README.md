@@ -93,7 +93,7 @@ MagentoProject_Cucumber/
 1. Clone the repository:
 
    ```bash
-       git clone https://github.com/<your-username>/MagentoProject_Cucumber.git
+       git clone https://github.com/Yigit-Cam/MagentoCucumberProject.git
    ```
 2. Open the project in IntelliJ IDEA (or any IDE)
 3. Run:
@@ -307,7 +307,7 @@ Bug tracking is handled in the GitHub Issues tab.
 
 ## 🔗 GitHub Links
 
-* 📁 [Main Repository]()
+* 📁 [Main Repository](https://github.com/Yigit-Cam/MagentoCucumberProject)
 
 **Contributors:**
 

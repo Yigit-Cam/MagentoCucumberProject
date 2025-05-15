@@ -19,7 +19,6 @@ public class DialogContent extends ReusableMethods {
         this.action = new Actions(GWD.getDriver());
     }
 
-    //Add Shoppingcart
     @FindBy(xpath = "//div[@option-label='XS']")
     public WebElement size;
 
@@ -59,7 +58,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[text()='You have no items in your shopping cart.'])[2]")
     public WebElement cartEmptyMessage;
 
-    //Product Order
     @FindBy(xpath = "(//*[text()='Proceed to Checkout'])[2]")
     public WebElement proceedCheckout;
 
@@ -78,8 +76,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[@class='radio'])[2]")
     public WebElement radioButton;
 
-    /// wish list locators
-
     @FindBy(xpath = "(//span[@class='base'])[1]")
     public WebElement myWishList;
 
@@ -95,8 +91,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//span[text()='Add to Wish List'])[1]")
     public WebElement productAddWishListButton;
 
-
-    /// add new address
     @FindBy(css = "[title='Add New Address']")
     public WebElement addNewAddressButton;
 

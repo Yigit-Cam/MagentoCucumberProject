@@ -11,7 +11,7 @@ import utilities.GWD;
 
 import java.time.Duration;
 
-public class AddingAndRemovingShoppingCartsteps {
+public class AddingAndRemovingShoppingCartSteps {
     DialogContent dc = new DialogContent();
     TabNav tn = new TabNav();
     LeftNav ln = new LeftNav();
