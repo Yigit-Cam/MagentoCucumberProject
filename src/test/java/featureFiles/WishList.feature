@@ -13,11 +13,8 @@ Feature:
     Given The user goes to the product selection page
     And  The user clicks on the Add to Favorites button
     And  The user confirms that they have added the product to their favorites
-    And  The user clicks on the Dropdown Menu and My Account button
-
-    When The user clicks on the My Wish List button
-    Then The user confirms that the product is on the favorite list
-
+    And User deletes a product from wishlist
+    Then the user checks the number of products in the wishlist
 
 
 

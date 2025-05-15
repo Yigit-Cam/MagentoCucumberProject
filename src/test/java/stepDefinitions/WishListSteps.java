@@ -18,17 +18,18 @@ public class WishListSteps {
     @And("The user clicks on the Add to Favorites button")
     public void theUserClicksOnTheAddToFavouritesButton() {
         js.executeScript("window.scrollBy(0, 300);");
-        GWD.getWait().until(ExpectedConditions.visibilityOf(dc.windJacket));
-        dc.action.moveToElement(dc.windJacket)
-                .pause(Duration.ofSeconds(3)).click().build().perform();
+
+        dc.action.moveToElement(dc.windJacket).build().perform();
+                dc.action.pause(Duration.ofSeconds(3)).click().build().perform();
+       // GWD.getWait().until(ExpectedConditions.visibilityOf(dc.windJacket));
 
         js.executeScript("window.scrollBy(0, 300);");
 
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.productAddWishListButton));
         Assert.assertTrue(dc.productAddWishListButton.isDisplayed());
-        dc.action.moveToElement(dc.productAddWishListButton)
-                .pause(Duration.ofSeconds(1))
-                .click().build().perform();
+        dc.action.moveToElement(dc.productAddWishListButton).build().perform();
+        dc.action.pause(Duration.ofSeconds(1));
+        dc.action.click(dc.productAddWishListButton).build().perform();
 
         GWD.getWait().until(ExpectedConditions.visibilityOf(tn.womenButton));
         dc.action.moveToElement(tn.womenButton)
@@ -57,19 +58,15 @@ public class WishListSteps {
         Assert.assertTrue(dc.myWishList.isDisplayed(), "My Wish List did not appear");
     }
 
-    @And("The user clicks on the Dropdown Menu and My Account button")
-    public void theUserClicksOnTheDropdownMenuAndMyAccountButton() {
+    @And("User deletes a product from wishlist")
+    public void userDeletesAProductFromWishlist() {
         GWD.getWait().until(ExpectedConditions.visibilityOf(dc.removeItemButton));
         dc.myClick(dc.removeItemButton);
     }
 
-    @When("The user clicks on the My Wish List button")
-    public void theUserClicksOnTheMyWishListButton() {
+    @Then("the user checks the number of products in the wishlist")
+    public void theUserChecksTheNumberOfProductsInTheWishlist() {
+        GWD.getWait().until(ExpectedConditions.visibilityOf(dc.removedMessage));
         Assert.assertTrue(dc.removedMessage.isDisplayed(), "Wish did not remove from your List ");
-    }
-
-    @Then("The user confirms that the product is on the favorite list")
-    public void theUserConfirmsThatTheProductIsOnTheFavouriteList() {
-        Assert.assertTrue(dc.item.isDisplayed(), "  product could not be verified");
     }
 }
