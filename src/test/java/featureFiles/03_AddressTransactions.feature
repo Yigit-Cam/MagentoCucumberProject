@@ -21,4 +21,3 @@ Feature: Address deletion, addition and editing Functionality
     When The user clicks on the drop-down menu next to their name in the top right corner and then on the My Account button
     And The user clicks on the Address Book button
     And The user clicks on the Delete button and deletes their old address and the verification message is displayed
-

@@ -1,3 +1,4 @@
+@Smoke, @Regression
 Feature: User Login Functionality
 
   Background:
@@ -8,4 +9,3 @@ Feature: User Login Functionality
   Scenario: Successful login with valid credentials
     When User enters valid email and password
     Then The user should be redirected to the Home Page and see "Welcome" text in the upper right
-

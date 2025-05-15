@@ -81,7 +81,4 @@ public class RegisterAndLogin extends ReusableMethods {
 
     @FindBy(xpath = "(//li[@class='authorization-link'])/a[1]")
     public WebElement signOutBtn;
-
-    @FindBy(xpath = "//h1[@class='page-title']/span")
-    public WebElement signedOutHeader;
 }

@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.RegisterAndLogin;
