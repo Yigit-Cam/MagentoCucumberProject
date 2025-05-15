@@ -243,7 +243,7 @@ MagentoProject_Cucumber/
 
 ✅ **Actual:** Products were successfully added and removed from the wish list. Visual confirmations were shown, and the list updated accordingly.
 
-<img src="testGifs/US_" alt="US_607_Negative" width="800" height="500"/>
+<img src="testGifs/US_708.gif" alt="" width="800" height="500"/>
 
 ---
 
