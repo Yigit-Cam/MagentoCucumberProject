@@ -1,3 +1,4 @@
+@Smoke, @Regression
 Feature: Product Ordering Functionality
 
   Background:

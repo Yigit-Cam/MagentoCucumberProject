@@ -1,3 +1,4 @@
+@Smoke, @Regression
 Feature:Adding products to the shopping cart product and removal Functionality
 
   Background:

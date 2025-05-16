@@ -61,7 +61,6 @@ MagentoProject_Cucumber/
 │       │
 │       └── resources/                       # ExtentReports configuration
 │
-├── testBugReports/                          # Bug reports (if any)
 ├── testGifs/                                # GIFs used in reports
 ├── testReports/                             # Spark & PDF report output (auto-generated)
 ├── configuration.properties                 # General test configuration
@@ -75,9 +74,9 @@ MagentoProject_Cucumber/
 
 
 | Tool/Library            | Description                     |
-| ----------------------- | ------------------------------- |
+|-------------------------| ------------------------------- |
 | Java JDK 21             | Programming Language            |
-| Selenium WebDriver 4.31 | Web Automation Tool             |
+| Selenium WebDriver 4.32 | Web Automation Tool             |
 | Cucumber 7.20           | BDD Testing Framework           |
 | TestNG 7.10             | Test Execution Engine           |
 | ExtentReports           | Report Generation (HTML & PDF)  |
@@ -222,6 +221,7 @@ MagentoProject_Cucumber/
 ---
 
 ### **7️⃣ US_707 - Search Functionality**
+#### ➕➖ **Positive and Negative Scenario**
 
 📌 The user searches for a product using a SKU number.
 
@@ -284,10 +284,8 @@ Find reports under:
 
 Bug tracking is handled in the GitHub Issues tab.
 
-```bash
-  
-  
-```
+- Not found any bugs.
+
 
 ---
 
