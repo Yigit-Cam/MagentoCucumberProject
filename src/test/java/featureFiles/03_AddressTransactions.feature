@@ -1,3 +1,4 @@
+@Smoke, @Regression
 Feature: Address deletion, addition and editing Functionality
 
   Background:
